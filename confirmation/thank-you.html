@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank you for your order</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      border-bottom: 1px solid #e3e3e3;
+      padding: 20px 24px;
+      text-align: center;
+    }
+    header img {
+      max-width: 240px;
+      height: auto;
+    }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      text-align: center;
+    }
+    .check-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 24px;
+    }
+    .check-icon circle {
+      fill: #f0faf3;
+      stroke: #1e8e3e;
+      stroke-width: 1.5;
+    }
+    .check-icon path {
+      stroke: #1e8e3e;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .subtext {
+      font-size: 15px;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .order-number {
+      font-size: 15px;
+      color: #6b6b6b;
+      margin-bottom: 40px;
+      margin-top: 8px;
+    }
+    .order-number strong {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #e3e3e3;
+      margin: 40px 0;
+    }
+    .details {
+      text-align: left;
+      background: #fafafa;
+      border: 1px solid #ececec;
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .details h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #8a8a8a;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .details p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #333333;
+    }
+    .details p span {
+      color: #8a8a8a;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid #e3e3e3;
+    }
+    footer p {
+      font-size: 13px;
+      color: #9a9a9a;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 22px; }
+      main { padding: 40px 20px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logocheckoutroyal.png" alt="Royal Success">
+  </header>
+
+  <main>
+    <svg class="check-icon" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="28" cy="28" r="27"/>
+      <path d="M17 28.5L24.5 36L39 20"/>
+    </svg>
+
+    <h1>Thank you! Your order is confirmed.</h1>
+    <p class="subtext">We've received your order and we're getting it ready.</p>
+    <p class="subtext">A confirmation email with your order details has been sent to your inbox.</p>
+    <p class="order-number">Order number: <strong id="order-number">#—</strong></p>
+
+    <hr class="divider">
+
+    <div class="details">
+      <h2>Order summary</h2>
+      <p><span>Name:</span> <strong id="customer-name">—</strong></p>
+      <p><span>Email:</span> <strong id="customer-email">—</strong></p>
+      <p><span>Total:</span> <strong id="order-total">—</strong></p>
+      <p><span>Shipping to:</span> <strong id="order-address">—</strong></p>
+      <p><span>Estimated delivery:</span> 5–7 business days</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Royal Success. All rights reserved.</p>
+  </footer>
+
+  <script>
+    var params = new URLSearchParams(window.location.search);
+
+    var name    = params.get('name')    || '—';
+    var email   = params.get('email')   || '—';
+    var order   = params.get('order')   || '—';
+    var total   = params.get('total')   || '—';
+    var address = params.get('address') || '—';
+
+    document.getElementById('customer-name').textContent  = name;
+    document.getElementById('customer-email').textContent = email;
+    document.getElementById('order-number').textContent   = '#' + order;
+    document.getElementById('order-total').textContent    = total;
+    document.getElementById('order-address').textContent  = address;
+  </script>
+
+</body>
+</html>
